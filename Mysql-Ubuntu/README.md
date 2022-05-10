@@ -36,7 +36,14 @@ docker run -d --name="mysql-run" \
     -p 3306:3306 \
     mysql:1.0
 ```
-
+With Volume:
+```shell
+docker run -d -p 3306:3306 \
+    --name="mysql-run" \
+    -e "MYSQL_PASSWORD=password" \
+    -v ~/mysql/data:/var/lib/mysql \
+    mysql:1.0
+```
 docker exec -it mysql-run /bin/bash
 mysql -p -e "SHOW DATABASES;"
 
